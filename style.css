@@ -1,0 +1,413 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* TEAL - #07889B
+ORANGE - #E37222
+ORANGELIGHT- #EEAA7B
+TEALLIGHT - #66B9BF */
+
+html {
+    background-color: #07889B;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 40px;
+    border: 10px solid #E37222;
+    background-color: bisque;
+    /* background-color: #EEAA7B; */
+    border-radius: 10px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.banner {
+    text-align: center;
+    background-color: #66B9BF;
+    width: 90%;
+    height: 42vh;
+    border-radius: 15px;
+    margin: 20px;
+    margin-left: 55px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.banner-text {
+    padding-top: 30px;
+    color: #FFF;
+}
+
+.banner-text__heading {
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 300;
+}
+
+.toast-btn {
+    text-align: center;
+    width: 100%;
+    height: 85px;
+    
+}
+
+.toast-btn-img {
+    display: none;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 60px;
+    border-radius: 50%;
+    /* padding: 15px; */
+    cursor: pointer;
+
+    box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+    transition: all 0.2s;
+    animation-name: toastEnter;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+}
+
+.vanish {
+    animation-name: toastLeave;
+    /* animation-direction: reverse; */
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-play-state: running;
+}
+.holy {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+    z-index: 100;
+}
+
+.toast-btn-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0.15rem 0.3rem 4rem rgba(0, 0, 0, 0.4);
+}
+
+.toast-btn-img:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0.05rem 0.1rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.btns {
+    display: none;
+    position: absolute;
+    width: 50px;
+    top: 62%;
+    border-radius: 20%;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+    z-index: 50;
+    cursor: pointer;
+    padding: 5px;
+    color: #fff;
+    box-shadow: 0 5px 1px rgba(0, 0, 0, 0.4);   
+}
+
+.btns:hover {
+    transform: scale(1.05);
+}
+
+.btns:active {
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+    transform: translateY(2px);
+}
+
+
+
+.btn-yes {
+    left: 43.5%;
+    background-color: #07889B;
+}
+.btn-no {
+    
+    left: 52.8%;
+    background-color: #66B9BF;
+}
+
+
+/* .toast-btn-img:hover {
+    transform: scale(1.2);
+    filter: brightness(180%);
+    background-blend-mode: hard-light;
+    border: 1px solid #EEAA7B;
+} */
+
+
+.news-img-block {
+    flex-basis: 280px;
+    height: 210px;
+    margin-left: 40px;
+    border-radius: 10px;
+    /* background-image: url(vendor/toast.png); */
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.slider-block {
+    animation: slides 15s linear infinite;
+}
+
+.greatToastExpand {
+    animation-name: toastExpand;
+    animation-fill-mode: forwards;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+    /* background-image: url(vendor/toast.png); */
+    /* height: 300px; */
+}
+
+/* .news-img {
+    width: 350px;
+    border-radius: 10px;
+    margin-top: 70px;
+} */
+
+.section-news {
+    background-color: bisque;
+}
+
+.main-p {
+   
+}
+
+.main-text {
+    padding-left: 30px;
+    background-color: #EEAA7B;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.icon-speech {
+    position: absolute;
+    font-size: 100px;
+    color: #fff;
+    left: 52%;
+    top: 46%;
+    opacity: 0;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translate(-50px, 30px) scale(0.2); 
+    z-index: 9;
+}
+
+.icon-speech__text {
+    position: absolute;
+    top: 52%;
+    left: 52.5%;
+    z-index: 55;
+    opacity: 0;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translate(-50px, 30px) scale(0.2);
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.toast-btn-img:hover + .icon-speech,
+.toast-btn-img:hover ~ .icon-speech__text {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+.active-toast {
+    transition: all 2s ease-in;
+    cursor: pointer;
+}
+.active-toast:hover {
+    color: #fff;
+    filter: brightness(2);
+    font-size: 25px;
+    padding: 5px;
+}
+
+.news-spin {
+    display: inline-block;
+    transition: all 1s linear;
+}
+
+.news-spin:hover {
+    transform: rotate(360deg);
+}
+
+.tiny-toast {
+    transform: translateY(-8px);
+    width: 40px;
+}
+
+.toast-speech {
+    display: none;
+    position: absolute;
+    font-size: 150px;
+    color: #fff;
+    left: 80%;
+    top: 0%;
+    /* opacity: 0; */
+    /* transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translate(-50px, 30px) scale(0.2);  */
+    z-index: 9;
+
+}
+
+.toast-speech__text {
+    display: none;
+    position: absolute;
+    top: 18%;
+    left: 88%;
+    z-index: 55;
+    /* opacity: 0; */
+    /* transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translate(-50px, 30px) scale(0.2); */
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+
+
+@keyframes slides {
+    0% {
+        background-image: url(vendor/breakingnews.jpg);
+    }
+    10% {
+        background-image: url(vendor/breakingnews.jpg);
+    }
+    
+    15% {
+        background-image: url(vendor/adult-1260380_1280.jpg);
+    }
+
+    75% {
+        
+        background-image: url(vendor/adult-1260380_1280.jpg);
+    }
+
+    80% {
+        background-image: url(vendor/breakingnews.jpg);
+    }
+
+    85% {
+       
+        background-image: url(vendor/breakingnews.jpg);
+    }
+    100% {
+       
+        background-image: url(vendor/breakingnews.jpg);
+    }
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.ticker {
+    position: absolute;
+    width: 100%;
+    padding: 5px 0;
+    font-family: 'Montserrat', Arial;
+    overflow: hidden;
+    bottom: -5%;
+}
+.ticker-title {
+  width: 1500px;
+  margin-top: 5px;
+  color: #065b70;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 0 2px #065b70;
+  
+  background: #E37222;
+}
+
+.ticker-title > * {
+  display: inline-block;
+  margin-right: 50px;
+  animation: title 12s infinite linear;
+}
+
+@keyframes title {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-233px);}
+}
+
+.ticker-news {
+  width: 100%;
+  height: 44px;
+  padding: 10px 0;
+  color: #dad621;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(0,0,0,1); 
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  white-space: nowrap;
+  font-family: 'Raleway Dots', cursive;
+  background: black; /* W3C */
+}
+
+.ticker-news > * {
+  display: inline-block;
+  animation: news 20s infinite linear;
+}
+
+@keyframes news {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-2135px);}
+}
+
+@keyframes toastLeave {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    5% {
+        transform: translateY(-60px) translateX(0) scale(0.6);
+    }
+
+    100% {
+        transform: translateY(-60px) translateX(-520px) scale(0.6);
+    }
+}
+
+@keyframes toastEnter {
+    0% {
+        transform: translateY(-60px) translateX(500px) scale(0.6);
+    }
+
+    95% {
+        transform: translateY(-60px) translateX(0) scale(0.6);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+@keyframes toastExpand {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    30% {
+        transform: translate(-400px, -250px) scale(1);
+    }
+
+    100% {
+        transform: translate(-400px, -250px) scale(8);
+    }
+}
